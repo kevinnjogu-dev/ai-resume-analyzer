@@ -1,0 +1,10 @@
+We are looking for a Machine Learning Engineer.
+
+Requirements:
+
+Python
+Machine Learning
+Git
+SQL
+Communication
+Critical Thinking
