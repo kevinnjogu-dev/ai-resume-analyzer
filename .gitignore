@@ -3,3 +3,6 @@ __pycache__/
 .pytest_cache/
 .vscode/
 .idea/
+
+# Generated analysis outputs
+data/analysis_results.json
