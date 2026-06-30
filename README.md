@@ -2,34 +2,38 @@
 
 [![Python Tests](https://github.com/kevinnjogu-dev/ai-resume-analyzer/actions/workflows/python-tests.yml/badge.svg)](https://github.com/kevinnjogu-dev/ai-resume-analyzer/actions)
 
-An AI-assisted resume analysis toolkit that evaluates resumes against job descriptions using ATS-style scoring, structured evaluation metrics, and automated analysis workflows.
+An AI-assisted resume analysis toolkit that evaluates resumes against job descriptions using ATS-style scoring, PDF parsing, structured evaluation metrics, and automated analysis workflows.
 
-This project demonstrates practical applications of **resume screening automation, prompt engineering concepts, structured scoring systems, and AI evaluation workflows**.
+This project demonstrates practical applications of **AI evaluation, resume screening automation, prompt engineering concepts, structured scoring systems, and Python-based workflow automation**.
 
 ---
 
 ## Project Overview
 
-Recruiters often review hundreds of resumes for a single position. This project simulates an Applicant Tracking System (ATS) workflow by analyzing a resume against a job description and generating a structured candidate assessment.
+Recruiters and hiring teams often review hundreds of resumes for a single position. This project simulates an Applicant Tracking System (ATS) workflow by analyzing resumes against job descriptions and generating transparent candidate evaluation scores.
 
-The analyzer evaluates resumes using:
+The analyzer supports:
 
-* Keyword Match Score
-* Skill Match Score
-* Weighted Overall Score
-* Candidate Match Assessment
+* Text-based resumes
+* PDF resume extraction
+* Job description matching
+* Skill-based evaluation
+* ATS-style scoring
+* Automated analysis reports
 
-The goal is to provide a transparent and explainable approach to resume evaluation.
+The goal is to provide an explainable approach to resume screening rather than a black-box ranking system.
 
 ---
 
-## Features
+## Key Features
 
 * Resume and job description comparison
+* PDF resume parsing
 * ATS-style scoring system
-* Keyword matching analysis
-* Skill-based evaluation
-* Weighted overall candidate score
+* Keyword match analysis
+* Skill match evaluation
+* Weighted candidate score calculation
+* Candidate assessment generation
 * JSON-based analysis reports
 * Visualization dashboard
 * Modular Python architecture
@@ -42,6 +46,10 @@ The goal is to provide a transparent and explainable approach to resume evaluati
 
 ```text
 Resume + Job Description
+          |
+          ↓
+Resume Text Extraction
+(PDF / TXT Support)
           |
           ↓
 Text Processing
@@ -68,9 +76,9 @@ Visualization Report
 
 ```json
 {
-    "keyword_match_score": 40.0,
-    "skill_match_score": 71.43,
-    "overall_score": 55.72,
+    "keyword_match_score": 33.33,
+    "skill_match_score": 80.0,
+    "overall_score": 56.66,
     "assessment": "Weak Match"
 }
 ```
@@ -102,7 +110,11 @@ ai-resume-analyzer/
 │
 ├── tests/
 │   ├── test_scoring.py
-│   └── test_analyzer.py
+│   ├── test_analyzer.py
+│   └── test_pdf_parser.py
+│
+├── scripts/
+│   └── create_sample_pdf.py
 │
 ├── visualizations/
 │   ├── dashboard.py
@@ -119,9 +131,11 @@ ai-resume-analyzer/
 ## Technologies
 
 * Python
+* PDF Processing (`pdfplumber`)
 * Pytest
 * Matplotlib
 * JSON Data Processing
+* GitHub Actions
 * Prompt Engineering Concepts
 * ATS Evaluation Workflows
 
@@ -133,6 +147,12 @@ ai-resume-analyzer/
 
 ```bash
 python -m src.analyzer
+```
+
+### Analyze a PDF Resume
+
+```bash
+python -m src.analyzer data/sample_resume.pdf data/sample_job_description.txt
 ```
 
 ### Generate Visualization
@@ -153,11 +173,12 @@ python -m pytest
 
 The project uses automated testing with pytest.
 
-Current test coverage includes:
+Current tests validate:
 
 * Resume scoring logic
 * ATS scoring calculations
 * Resume analysis workflow
+* PDF resume extraction
 
 All tests run automatically through GitHub Actions.
 
@@ -167,12 +188,26 @@ All tests run automatically through GitHub Actions.
 
 Planned enhancements:
 
-* PDF resume parsing
-* Natural language processing
+* Natural language processing improvements
 * Semantic similarity using embeddings
 * LLM-generated resume feedback
 * ATS optimization recommendations
+* Resume improvement suggestions
 * Interactive web dashboard
+
+---
+
+## Releases
+
+### v2.0 — PDF Parsing & CLI Support
+
+Major improvements:
+
+* Added PDF resume parsing
+* Added command-line resume analysis
+* Improved project architecture
+* Added PDF extraction tests
+* Expanded ATS evaluation workflow
 
 ---
 
