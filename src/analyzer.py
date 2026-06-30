@@ -4,8 +4,8 @@ AI Resume Analyzer
 Compares a resume against a job description.
 """
 
-from utils import load_text, save_json
-from scoring import keyword_match_score, resume_strength
+from src.utils import load_text, save_json
+from src.scoring import keyword_match_score, resume_strength
 
 
 def analyze(resume_file, job_file):
