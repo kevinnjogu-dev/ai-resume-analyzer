@@ -1,9 +1,11 @@
 """
 AI Resume Analyzer
 
-Compares a resume against a job description
-using ATS-style scoring.
+Analyzes a resume against a job description.
+Supports TXT and PDF resumes.
 """
+
+import argparse
 
 from src.utils import load_text, save_json
 from src.scoring import (
@@ -19,25 +21,17 @@ def analyze(resume_file, job_file):
     resume = load_text(resume_file)
     job = load_text(job_file)
 
+    keyword_score = keyword_match_score(resume, job)
+
     skills = [
         "python",
         "machine learning",
-        "data analysis",
         "sql",
         "git",
-        "aws",
-        "javascript"
+        "aws"
     ]
 
-    keyword_score = keyword_match_score(
-        resume,
-        job
-    )
-
-    skill_score = skill_match_score(
-        resume,
-        skills
-    )
+    skill_score = skill_match_score(resume, skills)
 
     final_score = overall_score(
         keyword_score,
@@ -56,15 +50,39 @@ def analyze(resume_file, job_file):
 
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser(
+        description="AI Resume Analyzer"
+    )
+
+    parser.add_argument(
+        "resume",
+        help="Path to resume file (.txt or .pdf)"
+    )
+
+    parser.add_argument(
+        "job",
+        help="Path to job description file"
+    )
+
+    parser.add_argument(
+        "--output",
+        default="data/analysis_results.json",
+        help="Output JSON file"
+    )
+
+    args = parser.parse_args()
+
+
     results = analyze(
-        "data/sample_resume.txt",
-        "data/sample_job_description.txt"
+        args.resume,
+        args.job
     )
 
     save_json(
         results,
-        "data/analysis_results.json"
+        args.output
     )
+
 
     print("Resume analyzed successfully.")
     print(results)
