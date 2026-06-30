@@ -1,8 +1,13 @@
+Kevin Njogu
+
+Python Developer
+
+Skills:
 Python
 Machine Learning
-Artificial Intelligence
-Git
-Data Analysis
 SQL
-Communication
-Problem Solving
+Git
+
+Experience:
+Built AI applications using Python and data analysis tools.
+Worked with machine learning workflows and software development.
