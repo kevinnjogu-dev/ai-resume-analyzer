@@ -2,76 +2,111 @@
 
 [![Python Tests](https://github.com/kevinnjogu-dev/ai-resume-analyzer/actions/workflows/python-tests.yml/badge.svg)](https://github.com/kevinnjogu-dev/ai-resume-analyzer/actions)
 
-An AI-powered resume analysis toolkit designed to evaluate resumes against job descriptions using structured scoring, prompt engineering principles, and automated evaluation workflows.
+An AI-assisted resume analysis toolkit that evaluates resumes against job descriptions using ATS-style scoring, structured evaluation metrics, and automated analysis workflows.
 
-This project demonstrates practical applications of **LLM evaluation, prompt engineering, resume screening automation, and AI-assisted candidate assessment**.
+This project demonstrates practical applications of **resume screening automation, prompt engineering concepts, structured scoring systems, and AI evaluation workflows**.
 
 ---
 
 ## Project Overview
 
-Recruiters and hiring teams often process large volumes of resumes when searching for suitable candidates. This project simulates an intelligent resume evaluation workflow by analyzing resumes against job requirements and generating structured assessment results.
+Recruiters often review hundreds of resumes for a single position. This project simulates an Applicant Tracking System (ATS) workflow by analyzing a resume against a job description and generating a structured candidate assessment.
 
-The analyzer evaluates resumes across multiple dimensions:
+The analyzer evaluates resumes using:
 
-* Skills Match
-* Experience Relevance
-* Education Alignment
-* Keyword Coverage
-* Resume Clarity
-* Overall Match Score
+* Keyword Match Score
+* Skill Match Score
+* Weighted Overall Score
+* Candidate Match Assessment
 
-The goal is to demonstrate how AI systems can support structured candidate screening while maintaining transparent and explainable evaluation criteria.
+The goal is to provide a transparent and explainable approach to resume evaluation.
 
 ---
 
 ## Features
 
 * Resume and job description comparison
-* Structured resume scoring system
-* Keyword-based matching analysis
-* JSON-based evaluation outputs
-* Modular Python project architecture
-* Evaluation result visualization
+* ATS-style scoring system
+* Keyword matching analysis
+* Skill-based evaluation
+* Weighted overall candidate score
+* JSON-based analysis reports
+* Visualization dashboard
+* Modular Python architecture
 * Automated testing with pytest
-* Prompt engineering workflow examples
+* Continuous integration using GitHub Actions
 
 ---
 
 ## How It Works
 
-The system follows a structured evaluation pipeline:
+```text
+Resume + Job Description
+          |
+          ↓
+Text Processing
+          |
+          ↓
+Keyword Matching
+          |
+          ↓
+Skill Evaluation
+          |
+          ↓
+Weighted ATS Score
+          |
+          ↓
+Candidate Assessment
+          |
+          ↓
+Visualization Report
+```
 
-1. **Input Processing**
+---
 
-   * Resume data is collected and prepared for analysis.
-   * Job descriptions are processed to identify relevant requirements.
+## Example Output
 
-2. **Resume Evaluation**
+```json
+{
+    "keyword_match_score": 40.0,
+    "skill_match_score": 71.43,
+    "overall_score": 55.72,
+    "assessment": "Weak Match"
+}
+```
 
-   * Resume content is analyzed against predefined evaluation criteria.
-   * Scores are generated across different assessment categories.
+---
 
-3. **Results Generation**
+## Dashboard Preview
 
-   * Evaluation results are stored in structured JSON format.
-   * Scores can be visualized for easier interpretation.
+![ATS Resume Score](visualizations/resume_score.png)
 
 ---
 
 ## Repository Structure
 
-```
+```text
 ai-resume-analyzer/
+
+├── data/
+├── docs/
+├── examples/
+├── notebooks/
+├── prompts/
 │
-├── data/                 # Input and generated evaluation data
-├── docs/                 # Project documentation
-├── examples/             # Example inputs and outputs
-├── notebooks/            # Exploratory analysis notebooks
-├── prompts/              # Prompt engineering resources
-├── src/                  # Core application logic
-├── tests/                # Automated tests
-├── visualizations/       # Generated charts and analysis visuals
+├── src/
+│   ├── analyzer.py
+│   ├── scoring.py
+│   ├── utils.py
+│   └── __init__.py
+│
+├── tests/
+│   ├── test_scoring.py
+│   └── test_analyzer.py
+│
+├── visualizations/
+│   ├── dashboard.py
+│   └── resume_score.png
 │
 ├── README.md
 ├── requirements.txt
@@ -85,42 +120,59 @@ ai-resume-analyzer/
 
 * Python
 * Pytest
-* JSON Data Processing
 * Matplotlib
+* JSON Data Processing
 * Prompt Engineering Concepts
-* LLM Evaluation Workflows
-* Markdown Documentation
+* ATS Evaluation Workflows
 
 ---
 
-## Testing
+## Running the Project
 
-This project uses **pytest** for automated testing.
+### Analyze a Resume
 
-Run tests locally:
+```bash
+python -m src.analyzer
+```
+
+### Generate Visualization
+
+```bash
+python visualizations/dashboard.py
+```
+
+### Run Tests
 
 ```bash
 python -m pytest
 ```
 
-Current tests validate:
+---
 
-* Resume scoring functionality
-* Evaluation logic
-* Core project components
+## Testing
+
+The project uses automated testing with pytest.
+
+Current test coverage includes:
+
+* Resume scoring logic
+* ATS scoring calculations
+* Resume analysis workflow
+
+All tests run automatically through GitHub Actions.
 
 ---
 
 ## Future Improvements
 
-Planned enhancements include:
+Planned enhancements:
 
-* LLM-powered resume evaluation
-* ATS compatibility scoring
-* Semantic similarity analysis using embeddings
 * PDF resume parsing
-* Interactive resume analysis dashboard
-* Advanced AI ranking recommendations
+* Natural language processing
+* Semantic similarity using embeddings
+* LLM-generated resume feedback
+* ATS optimization recommendations
+* Interactive web dashboard
 
 ---
 
@@ -129,9 +181,3 @@ Planned enhancements include:
 **Kevin Njogu**
 
 AI Trainer | LLM Evaluator | Machine Learning Enthusiast
-
----
-
-## License
-
-This project is licensed under the MIT License.
